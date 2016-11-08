@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CurrencyApp</string>
+    <string name="usd">USD</string>
+    <string name="_4_0">4,0</string>
+    <string name="_4_5">4,5</string>
+    <string name="a">a</string>
+</resources>
