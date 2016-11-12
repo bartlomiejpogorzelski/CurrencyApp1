@@ -81,7 +81,8 @@ public class MainActivity extends AppCompatActivity {
             try {
 
 
-                HttpGet get = new HttpGet("http://api.nbp.pl/api/exchangerates/tables/c?format=json");
+                HttpGet get = new HttpGet("http://api.nbp.pl/api/exchangerates/tables/c");
+                get.setHeader("Accept","application/json");
                 HttpClient httpclient = new DefaultHttpClient();
                 HttpResponse response = httpclient.execute(get);
 
