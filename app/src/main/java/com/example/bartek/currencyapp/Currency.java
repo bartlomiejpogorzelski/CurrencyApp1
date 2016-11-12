@@ -6,28 +6,32 @@ package com.example.bartek.currencyapp;
 public class Currency {
 
     private String symbol;
-    private int buy;
-    private int sale;
+    private double buy;
+    private double sale;
 
-    public Currency(int buy, int sale, String symbol) {
+
+
+    public Currency() {}
+
+    public Currency(double buy, double sale, String symbol) {
         this.buy = buy;
         this.sale = sale;
         this.symbol = symbol;
     }
 
-    public int getBuy() {
+    public double getBuy() {
         return buy;
     }
 
-    public void setBuy(int buy) {
+    public void setBuy(double buy) {
         this.buy = buy;
     }
 
-    public int getSale() {
+    public double getSale() {
         return sale;
     }
 
-    public void setSale(int sale) {
+    public void setSale(double sale) {
         this.sale = sale;
     }
 
