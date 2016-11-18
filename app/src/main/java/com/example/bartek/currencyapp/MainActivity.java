@@ -10,7 +10,9 @@ import org.apache.http.util.EntityUtils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +21,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -36,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
     static String TAG = "Main" ;
 
-    ArrayList<Currency> currencyArrayList;
+    public static ArrayList<Currency> currencyArrayList= new ArrayList<Currency>();
+
     CurrencyAdapter adapter;
 
     ListView listView;
@@ -51,18 +55,44 @@ public class MainActivity extends AppCompatActivity {
 
         fillCurrencyList();
 
+
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu1, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
+        @Override
+        public boolean onCreateOptionsMenu(Menu menu) {
+            getMenuInflater().inflate(R.menu.menu1, menu);
+            return super.onCreateOptionsMenu(menu);
+        }
+
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            int id= item.getItemId();
+            if (id == R.id.action){
+                openActivity();
+            }
+            return super.onOptionsItemSelected(item);
+        }
+
+        private void openActivity() {
+            Intent intent= new Intent(this, ActivityB.class);
+
+
+
+            startActivity(intent);
+
+
+        }
+
+
+
+
+
+
 
     private void fillCurrencyList() {
 
-        currencyArrayList = new ArrayList<Currency>();
+
 
 
         new JSONAsyncTask().execute();
@@ -73,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 
     class JSONAsyncTask extends AsyncTask<Void, Void, Void> {
 

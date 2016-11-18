@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -51,6 +52,8 @@ public class CurrencyAdapter extends ArrayAdapter<Currency> {
             holder.sale3=(TextView)v.findViewById(R.id.sale);
 
 
+
+
             v.setTag(holder);
         } else {
             holder = (HolderView) v.getTag();
@@ -62,6 +65,8 @@ public class CurrencyAdapter extends ArrayAdapter<Currency> {
         holder.buy2.setText(String.valueOf(currencyArrayList.get(position).getBuy()));
         holder.sale3.setText(String.valueOf(currencyArrayList.get(position).getSale()));
 
+
+
         return v;
 
 
@@ -69,10 +74,13 @@ public class CurrencyAdapter extends ArrayAdapter<Currency> {
 
     }
 
-        static class HolderView{
+         static class HolderView{
             public TextView symbol1;
             public TextView buy2;
             public TextView sale3;
+
+
+
 
     }
 
