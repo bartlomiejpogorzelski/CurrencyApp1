@@ -5,4 +5,9 @@
     <string name="_4_5">4,5</string>
     <string name="a">a</string>
     <string name="calculator_cantor">Calculator+cantor</string>
+    <string name="wprowadz_kwot">Wprowadz kwotę</string>
+    <string name="_1000z">1000zł</string>
+    <string name="all_curiencies">All curiencies</string>
+    <string name="all_curriencies">all_curriencies</string>
+
 </resources>
