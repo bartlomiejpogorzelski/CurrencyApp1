@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     android:background="@android:color/holo_blue_dark"
-    tools:context="com.example.bartek.currencyapp.ActivityB">
+    tools:context="com.example.bartek.currencyapp.AccountsActivity">
 
     <TextView
         android:layout_width="match_parent"

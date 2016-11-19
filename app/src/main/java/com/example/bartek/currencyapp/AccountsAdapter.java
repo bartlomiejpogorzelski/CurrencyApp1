@@ -18,7 +18,7 @@ package com.example.bartek.currencyapp;
  * Created by Bartek on 2016-11-15.
  */
 
-public class Accounts extends ArrayAdapter<Account> {
+public class AccountsAdapter extends ArrayAdapter<Account> {
 
         ArrayList<Account> accounts;
         LayoutInflater vi;
@@ -28,7 +28,7 @@ public class Accounts extends ArrayAdapter<Account> {
 
 
 
-        public Accounts(Context context,int resource, ArrayList<Account> object) {
+        public AccountsAdapter(Context context, int resource, ArrayList<Account> object) {
 
                 super(context, resource, object);
 
