@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         listView = (ListView) findViewById(R.id.list);
 
         fillCurrencyList();
@@ -63,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
         public boolean onCreateOptionsMenu(Menu menu) {
             getMenuInflater().inflate(R.menu.menu1, menu);
             return super.onCreateOptionsMenu(menu);
+
+
         }
 
         @Override
@@ -70,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
             int id= item.getItemId();
             if (id == R.id.action){
                 openActivity();
+
             }
             return super.onOptionsItemSelected(item);
         }
@@ -80,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
 
 
             startActivity(intent);
-
 
         }
 

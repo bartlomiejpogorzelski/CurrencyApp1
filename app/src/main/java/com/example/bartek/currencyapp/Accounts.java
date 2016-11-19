@@ -26,6 +26,8 @@ public class Accounts extends ArrayAdapter<Account> {
         HolderView holder;
         Context context;
 
+
+
         public Accounts(Context context,int resource, ArrayList<Account> object) {
 
                 super(context, resource, object);
@@ -69,7 +71,6 @@ public class Accounts extends ArrayAdapter<Account> {
 
                 holder.button1.setText(currencyArrayList.get(position).getSymbol());
                 holder.buy2.setText(String.valueOf(currencyArrayList.get(position).getBuy()));
-
 
 
 
