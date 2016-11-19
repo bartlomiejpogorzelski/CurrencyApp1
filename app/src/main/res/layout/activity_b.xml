@@ -16,7 +16,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textAmount"
-        android:text="@string/_1000z"/>
+        android:text="@string/_1000z"
+        android:textSize="25sp"
+        />
 
     <Button
         android:layout_width="match_parent"
@@ -24,7 +26,7 @@
         android:layout_gravity="center"
         android:text="@string/all_curriencies"
         android:id="@+id/usdId"
-        android:onClick="btnUSD"
+        android:onClick="btnAllCurrencies"
         />
     <ListView
         android:layout_width="match_parent"
