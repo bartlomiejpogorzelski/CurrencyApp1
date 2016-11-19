@@ -16,6 +16,7 @@ public class ActivityB extends AppCompatActivity {
 
 
 
+    public static Account mainAccount= new Account(13000.0, new Currency(1,1,"PLN"));
 
     CurrencyAdapter.HolderView holder= new CurrencyAdapter.HolderView();
 
