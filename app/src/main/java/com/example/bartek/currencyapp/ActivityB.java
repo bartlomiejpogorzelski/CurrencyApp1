@@ -9,6 +9,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class ActivityB extends AppCompatActivity {
@@ -48,8 +49,6 @@ public class ActivityB extends AppCompatActivity {
         for (int i = 0; i < MainActivity.currencyArrayList.size() ; i++) {
             accountsList.add(new Account(1000.0, MainActivity.currencyArrayList.get(i)));
         }
-
-
 
         listb.setAdapter(aa);
         aa.notifyDataSetChanged();
