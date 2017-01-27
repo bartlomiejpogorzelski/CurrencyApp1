@@ -1,6 +1,7 @@
 package com.example.bartek.currencyapp;
 
         import android.content.Context;
+        import android.content.Intent;
         import android.support.annotation.NonNull;
         import android.view.LayoutInflater;
         import android.view.View;
@@ -25,7 +26,7 @@ public class AccountsAdapter extends ArrayAdapter<Account> {
         int Resource;
         HolderView holder;
         Context context;
-
+        Button buttonSmall;
 
 
         public AccountsAdapter(Context context, int resource, ArrayList<Account> object) {
@@ -35,11 +36,6 @@ public class AccountsAdapter extends ArrayAdapter<Account> {
 
                 vi=(LayoutInflater) context
                         .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-
-
-
-
         }
 
 
@@ -47,9 +43,7 @@ public class AccountsAdapter extends ArrayAdapter<Account> {
         @Override
         public View getView(int position, View convertView, @NonNull ViewGroup parent) {
 
-
                  View v = convertView;
-
 
                 if (v == null){
 
@@ -57,27 +51,18 @@ public class AccountsAdapter extends ArrayAdapter<Account> {
 
                         v=vi.inflate(R.layout.row1, null);
 
-                        holder.button1=(Button) v.findViewById(R.id.button);
+                        holder.button1=(Button) v.findViewById(R.id.buttonSmall);
                         holder.buy2=(TextView)v.findViewById(R.id.buy11);
-
-
 
                         v.setTag(holder);
                 } else {
                         holder = (HolderView) v.getTag();
                 }
 
-
-
                 holder.button1.setText(currencyArrayList.get(position).getSymbol());
                 holder.buy2.setText(String.valueOf(currencyArrayList.get(position).getBuy()));
 
-
-
                 return v;
-
-
-
 
         }
 
@@ -85,14 +70,6 @@ public class AccountsAdapter extends ArrayAdapter<Account> {
                 public Button button1;
                 public TextView buy2;
 
-
-
-
-
         }
-
-
-
-
 
 }

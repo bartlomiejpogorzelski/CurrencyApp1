@@ -8,7 +8,7 @@ import java.text.DecimalFormat;
 
 public class Account {
 
-    private Double amount=120.0;
+    private Double amount;
     private Currency currency;
 
     public Account(Double amount, Currency currency) {
