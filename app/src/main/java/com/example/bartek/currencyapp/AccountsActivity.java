@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -17,12 +18,13 @@ public class AccountsActivity extends AppCompatActivity {
 
     CurrencyAdapter.HolderView holder= new CurrencyAdapter.HolderView();
 
+    Button buttonSmall;
     TextView textView;
     ListView listb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_b);
+        setContentView(R.layout.accounts_activity);
 
 
 
@@ -30,9 +32,17 @@ public class AccountsActivity extends AppCompatActivity {
         listb= (ListView) findViewById(R.id.listB);
 
 
+        textView.setText(String.valueOf(mainAccount.getAmount()+"  zł"));
 
-        textView.setText(String.valueOf(12000.00+" zł"));
+        //buttonSmall=(Button) findViewById(R.id.buttonSmall)
 
+//        buttonSmall.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//               Intent anotherIntent= new Intent(getApplicationContext(), ExchangeActivity.class);
+//                startActivity(anotherIntent);
+//            }
+//        });
 
 
 
@@ -58,15 +68,15 @@ public class AccountsActivity extends AppCompatActivity {
 
 
     public void btnAllCurrencies(View view) {
-    finish();
+        Intent anotherIntent= new Intent(getApplicationContext(), ExchangeActivity.class);
+        startActivity(anotherIntent);
 
 
     }
 
-    public void BtnSmall(View view) {
-        Intent intent= new Intent(this, ExchangeActivity.class);
 
-        startActivity(intent);
-
-    }
+      public void BtnSmall(View view) {
+         Intent anotherIntent= new Intent(getApplicationContext(), ExchangeActivity.class);
+                  startActivity(anotherIntent);
+       }
 }
