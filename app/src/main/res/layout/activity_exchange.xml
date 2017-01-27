@@ -39,7 +39,7 @@
             android:textSize="30sp"
             android:inputType="numberDecimal"
             android:maxLines="1"
-            android:hint="Suma do kupienia"
+            android:hint="Suma do kupienia USD"
             />
         <Button
             android:layout_width="wrap_content"

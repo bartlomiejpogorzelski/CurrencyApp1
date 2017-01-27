@@ -33,7 +33,7 @@ public class ExchangeActivity extends AppCompatActivity {
 
         textAmount.setText(String.valueOf(AccountsActivity.mainAccount.getAmount()));
 
-        textForeign.setText(String.valueOf(MainActivity.currencyArrayList.get(1).getBuy()));
+        textForeign.setText(String.valueOf(MainActivity.currencyArrayList.get(0).getBuy()));
 
 
 
