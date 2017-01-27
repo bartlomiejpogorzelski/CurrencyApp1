@@ -20,7 +20,9 @@
         <activity
             android:name=".AccountsActivity"
             android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".ExchangeActivity"></activity>
+        <activity
+            android:name=".ExchangeActivity"
+            android:parentActivityName=".AccountsActivity"></activity>
     </application>
 
 </manifest>
