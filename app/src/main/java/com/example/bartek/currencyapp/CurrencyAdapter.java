@@ -38,7 +38,6 @@ public class CurrencyAdapter extends ArrayAdapter<Currency> {
 
         View v = convertView;
 
-
         if (v == null){
 
             holder= new HolderView();
@@ -59,18 +58,11 @@ public class CurrencyAdapter extends ArrayAdapter<Currency> {
             holder = (HolderView) v.getTag();
         }
 
-
-
         holder.symbol1.setText(currencyArrayList.get(position).getSymbol());
         holder.buy2.setText(String.valueOf(currencyArrayList.get(position).getBuy()));
         holder.sale3.setText(String.valueOf(currencyArrayList.get(position).getSale()));
 
-
-
         return v;
-
-
-
 
     }
 
@@ -78,9 +70,6 @@ public class CurrencyAdapter extends ArrayAdapter<Currency> {
             public TextView symbol1;
             public TextView buy2;
             public TextView sale3;
-
-
-
 
     }
 
