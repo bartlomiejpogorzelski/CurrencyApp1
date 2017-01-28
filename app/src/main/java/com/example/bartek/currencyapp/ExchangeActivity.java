@@ -34,6 +34,7 @@ public class ExchangeActivity extends AppCompatActivity {
         editText=(EditText) findViewById(R.id.EditSum);
         buyButton=(Button)findViewById(R.id.BuyButton);
 
+        textAmount.setText(AccountsActivity.mainAccount.getAmount().toString()); //it can be String.valueof()
 
         textForeign.setText(String.valueOf(MainActivity.currencyArrayList.get(0).getBuy()));
 
