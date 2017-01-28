@@ -1,5 +1,6 @@
 package com.example.bartek.currencyapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +18,9 @@ public class ExchangeActivity extends AppCompatActivity {
     TextView textForeign;
     EditText editText;
     Button buyButton;
-
+    double a;
+    double b;
+    double d;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,16 +34,37 @@ public class ExchangeActivity extends AppCompatActivity {
         editText=(EditText) findViewById(R.id.EditSum);
         buyButton=(Button)findViewById(R.id.BuyButton);
 
-        textAmount.setText(String.valueOf(AccountsActivity.mainAccount.getAmount()));
 
         textForeign.setText(String.valueOf(MainActivity.currencyArrayList.get(0).getBuy()));
+
 
 
 
     }
 
     public void BtnBUY(View view) {
+       upDateTextView();
 
+
+
+//        Intent anotherIntent5= new Intent(getApplicationContext(), ExchangeActivity.class);
+//        startActivity(anotherIntent5);
 
     }
+
+    private void upDateTextView() {
+        a =Double.valueOf((textForeign.getText()).toString());
+        b= Double.parseDouble(String.valueOf(editText.getText())); //editText.getText
+        d = Double.parseDouble(String.valueOf(textAmount.getText()));
+
+        double result= a * b;
+
+        double z = d - result;
+
+        textAmount.setText(String.valueOf(z));
+    }
+
+
 }
+
+
