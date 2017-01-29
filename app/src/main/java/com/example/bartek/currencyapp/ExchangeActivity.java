@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import static com.example.bartek.currencyapp.AccountsActivity.mainAccount;
+
 public class ExchangeActivity extends AppCompatActivity {
 
 
@@ -30,7 +32,7 @@ public class ExchangeActivity extends AppCompatActivity {
         editText=(EditText) findViewById(R.id.EditSum);
         buyButton=(Button)findViewById(R.id.BuyButton);
 
-        textAmount.setText(AccountsActivity.mainAccount.getAmount().toString()); //it can be String.valueof()
+        textAmount.setText(mainAccount.getAmount().toString()); //it can be String.valueof()
 
         textForeign.setText(String.valueOf(MainActivity.currencyArrayList.get(0).getBuy()));
 
@@ -58,8 +60,8 @@ public class ExchangeActivity extends AppCompatActivity {
         double newPlnAmount = plnAmount - result;
 
 
-        AccountsActivity.mainAccount.setAmount(newPlnAmount);
-        textAmount.setText(String.valueOf(AccountsActivity.mainAccount.getAmount()));
+        mainAccount.setAmount(newPlnAmount);
+        textAmount.setText(String.valueOf(mainAccount.getAmount()));
     }
 
 
