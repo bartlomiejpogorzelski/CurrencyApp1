@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import static com.example.bartek.currencyapp.AccountsActivity.mainAccount;
 
@@ -55,15 +56,19 @@ public class ExchangeActivity extends AppCompatActivity {
         plnAmount = Double.parseDouble(String.valueOf(textAmount.getText()));
 
         double result=  foreignCurs * buyAmount;
-
         double newPlnAmount = plnAmount - result;
+        if (result > plnAmount)
+        {
+            Toast.makeText(this,"You don't have enough money",Toast.LENGTH_SHORT).show();
+        }
+            else
+            mainAccount.setAmount(newPlnAmount);
+            textAmount.setText(String.valueOf(mainAccount.getAmount()));
 
-
-        mainAccount.setAmount(newPlnAmount);
-        textAmount.setText(String.valueOf(mainAccount.getAmount()));
     }
 
 
 }
+
 
 
