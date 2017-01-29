@@ -10,7 +10,6 @@ import android.widget.TextView;
 public class ExchangeActivity extends AppCompatActivity {
 
 
-
     TextView textAmount;
     TextView textForeign;
     EditText editText;
@@ -37,7 +36,6 @@ public class ExchangeActivity extends AppCompatActivity {
 
 
 
-
     }
 
     public void BtnBUY(View view) {
@@ -59,7 +57,9 @@ public class ExchangeActivity extends AppCompatActivity {
 
         double newPlnAmount = plnAmount - result;
 
-        textAmount.setText(String.valueOf(newPlnAmount));
+
+        AccountsActivity.mainAccount.setAmount(newPlnAmount);
+        textAmount.setText(String.valueOf(AccountsActivity.mainAccount.getAmount()));
     }
 
 
