@@ -1,5 +1,6 @@
 package com.example.bartek.currencyapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -43,10 +44,8 @@ public class ExchangeActivity extends AppCompatActivity {
     public void BtnBUY(View view) {
        upDateTextView();
 
-
-
-//        Intent anotherIntent5= new Intent(getApplicationContext(), ExchangeActivity.class);
-//        startActivity(anotherIntent5);
+        Intent anotherIntent5= new Intent(getApplicationContext(), AccountsActivity.class);
+        startActivity(anotherIntent5);
 
     }
 
