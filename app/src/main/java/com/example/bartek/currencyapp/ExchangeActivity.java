@@ -1,14 +1,11 @@
 package com.example.bartek.currencyapp;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import static com.example.bartek.currencyapp.MainActivity.currencyArrayList;
 
 public class ExchangeActivity extends AppCompatActivity {
 
@@ -18,9 +15,9 @@ public class ExchangeActivity extends AppCompatActivity {
     TextView textForeign;
     EditText editText;
     Button buyButton;
-    double a;
-    double b;
-    double d;
+    double foreignCurs;
+    double buyAmount;
+    double plnAmount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,15 +51,15 @@ public class ExchangeActivity extends AppCompatActivity {
     }
 
     private void upDateTextView() {
-        a =Double.valueOf((textForeign.getText()).toString());
-        b= Double.parseDouble(String.valueOf(editText.getText())); //editText.getText
-        d = Double.parseDouble(String.valueOf(textAmount.getText()));
+        foreignCurs=Double.valueOf((textForeign.getText()).toString());
+        buyAmount = Double.parseDouble(String.valueOf(editText.getText())); //editText.getText
+        plnAmount = Double.parseDouble(String.valueOf(textAmount.getText()));
 
-        double result= a * b;
+        double result=  foreignCurs * buyAmount;
 
-        double z = d - result;
+        double newPlnAmount = plnAmount - result;
 
-        textAmount.setText(String.valueOf(z));
+        textAmount.setText(String.valueOf(newPlnAmount));
     }
 
 
