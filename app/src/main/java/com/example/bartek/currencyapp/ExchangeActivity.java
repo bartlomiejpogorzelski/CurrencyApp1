@@ -1,17 +1,24 @@
 package com.example.bartek.currencyapp;
 
 import android.content.Intent;
+import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.example.bartek.currencyapp.AccountsActivity.mainAccount;
 
-public class ExchangeActivity extends AppCompatActivity {
+public class ExchangeActivity extends AppCompatActivity  {
 
 
     TextView textAmount;
@@ -38,9 +45,29 @@ public class ExchangeActivity extends AppCompatActivity {
 
         textForeign.setText(String.valueOf(MainActivity.currencyArrayList.get(0).getBuy()));
 
-
+        addSpinnerList();
 
     }
+
+    private void addSpinnerList() {
+         Spinner spinner = (Spinner) findViewById(R.id.spinner);
+
+        String[] array_spinner;
+        ArrayList list1= new ArrayList();
+
+        for (int y=0; y < MainActivity.currencyArrayList.size() ; y++)
+        {
+            array_spinner= new String[MainActivity.currencyArrayList.size()];
+            array_spinner[y]=String.valueOf(MainActivity.currencyArrayList.get(y).getSymbol());
+
+            list1.add(array_spinner);
+        }
+
+         ArrayAdapter spinnerAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, list1);
+        spinner.setAdapter(spinnerAdapter);
+        spinner.setOnItemSelectedListener(this);
+    }
+
 
     public void BtnBUY(View view) {
        upDateTextView();
