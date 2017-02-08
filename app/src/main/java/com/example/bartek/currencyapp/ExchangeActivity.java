@@ -18,7 +18,7 @@ import java.util.List;
 
 import static com.example.bartek.currencyapp.AccountsActivity.mainAccount;
 
-public class ExchangeActivity extends AppCompatActivity  {
+public class ExchangeActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
 
     TextView textAmount;
@@ -64,8 +64,9 @@ public class ExchangeActivity extends AppCompatActivity  {
         }
 
          ArrayAdapter spinnerAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, list1);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);//spinner wiekszy na cały ekran
         spinner.setAdapter(spinnerAdapter);
-        spinner.setOnItemSelectedListener(this);
+       spinner.setOnItemSelectedListener(this);
     }
 
 
@@ -95,6 +96,15 @@ public class ExchangeActivity extends AppCompatActivity  {
     }
 
 
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        Toast.makeText(this,"Yyy",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
 }
 
 
