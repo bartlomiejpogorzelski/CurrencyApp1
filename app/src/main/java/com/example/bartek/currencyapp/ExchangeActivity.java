@@ -43,7 +43,7 @@ public class ExchangeActivity extends AppCompatActivity implements AdapterView.O
 
         textAmount.setText(mainAccount.getAmount().toString()); //it can be String.valueof()
 
-        textForeign.setText(String.valueOf(MainActivity.currencyArrayList.get(0).getBuy()));
+        textForeign.setText(String.valueOf("Course of currency "));
 
         addSpinnerList();
 
@@ -66,7 +66,8 @@ public class ExchangeActivity extends AppCompatActivity implements AdapterView.O
          ArrayAdapter spinnerAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, list1);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);//spinner wiekszy na cały ekran
         spinner.setAdapter(spinnerAdapter);
-       spinner.setOnItemSelectedListener(this);
+
+        spinner.setOnItemSelectedListener(this);
     }
 
 
@@ -97,8 +98,11 @@ public class ExchangeActivity extends AppCompatActivity implements AdapterView.O
 
 
     @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        Toast.makeText(this,"Yyy",Toast.LENGTH_SHORT).show();
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
+        Toast.makeText(parent.getContext(), "You chose this currency: " + parent.getItemAtPosition(position).toString(), Toast.LENGTH_LONG).show();
+        textForeign.setText(String.valueOf(MainActivity.currencyArrayList.get(position).getBuy()));
+        //parent.getItemAtPosition(position).toString();
+        //Toast.makeText(this,"Yyy",Toast.LENGTH_SHORT).show();
     }
 
     @Override
