@@ -25,9 +25,15 @@
             android:layout_height="wrap_content"
             android:id="@+id/buy11"
             android:text="@string/_4_0"
-            android:layout_margin="30dp"
+            android:layout_margin="25dp"
             />
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/amountOtherCurrency"
+            android:text="@string/_0"
+            android:layout_margin="25dp"
+            />
 
 
 
