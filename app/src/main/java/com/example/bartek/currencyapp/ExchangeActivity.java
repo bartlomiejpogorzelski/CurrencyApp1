@@ -1,7 +1,6 @@
 package com.example.bartek.currencyapp;
 
 import android.content.Intent;
-import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,8 +13,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import static com.example.bartek.currencyapp.AccountsActivity.accountsList;
 import static com.example.bartek.currencyapp.AccountsActivity.mainAccount;
 
 public class ExchangeActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -26,8 +27,10 @@ public class ExchangeActivity extends AppCompatActivity implements AdapterView.O
     EditText editText;
     Button buyButton;
     double foreignCurs;
-    double buyAmount;
+    static double buyAmount;
     double plnAmount;
+    TextView otherAmount;
+    ArrayList<Account> t= new ArrayList<>() ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,25 +49,32 @@ public class ExchangeActivity extends AppCompatActivity implements AdapterView.O
         textForeign.setText(String.valueOf("Course of currency "));
 
         addSpinnerList();
-
+        otherAmount = (TextView) findViewById(R.id.amountOtherCurrency);
     }
 
     private void addSpinnerList() {
          Spinner spinner = (Spinner) findViewById(R.id.spinner);
 
         String[] array_spinner;
-        ArrayList list1= new ArrayList();
+        ArrayList<String> list1= new ArrayList();
 
         for (int y=0; y < MainActivity.currencyArrayList.size() ; y++)
         {
             array_spinner= new String[MainActivity.currencyArrayList.size()];
             array_spinner[y]=String.valueOf(MainActivity.currencyArrayList.get(y).getSymbol());
 
-            list1.add(array_spinner);
+            for (String s : array_spinner)
+            {
+                if (s != null && s.length() >0)
+                {
+                    list1.add(s);
+                }
+            }
         }
 
          ArrayAdapter spinnerAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, list1);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);//spinner wiekszy na cały ekran
+       // spinnerAdapter.notifyDataSetChanged();
         spinner.setAdapter(spinnerAdapter);
 
         spinner.setOnItemSelectedListener(this);
@@ -93,7 +103,8 @@ public class ExchangeActivity extends AppCompatActivity implements AdapterView.O
             else
             mainAccount.setAmount(newPlnAmount);
             textAmount.setText(String.valueOf(mainAccount.getAmount()));
-
+//            int i = 0;
+//            accountsList.add(new Account(buyAmount, MainActivity.currencyArrayList.get(i)));
     }
 
 
