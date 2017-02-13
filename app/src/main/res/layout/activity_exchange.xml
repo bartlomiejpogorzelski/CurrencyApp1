@@ -21,11 +21,28 @@
             android:layout_margin="20dp"
             android:textSize="30sp"
             />
-        <Spinner
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner"
-            />
+            android:orientation="horizontal"            >
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:text="Select the currency \n that you want to buy:"
+                    android:lines="2"
+                    android:minLines="2"
+
+                    />
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+        </LinearLayout>
+
 
 
 
