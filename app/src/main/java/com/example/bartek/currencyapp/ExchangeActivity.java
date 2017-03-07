@@ -72,15 +72,13 @@ public class ExchangeActivity extends AppCompatActivity implements AdapterView.O
         double plnAmount = Double.parseDouble(String.valueOf(textAmount.getText()));
         double buyAmount = Double.parseDouble(String.valueOf(editText.getText())); //editText.getText
         double result =  foreignCurs * buyAmount;
-        double newPlnAmount = plnAmount - result;
         if (result > plnAmount)
         {
             Toast.makeText(this,"You don't have enough money",Toast.LENGTH_SHORT).show();
         }
         else
         {
-            mainAccount.setAmount(newPlnAmount);
-            textAmount.setText(String.valueOf(mainAccount.getAmount()));
+            mainAccount.updateAmount(-result);
             for ( Account account : accountsList )
             {
              if((account.getCurrency().getSymbol().equals(spinner.getSelectedItem().toString())) )
