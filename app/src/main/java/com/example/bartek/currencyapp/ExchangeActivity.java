@@ -49,7 +49,6 @@ public class ExchangeActivity extends AppCompatActivity implements AdapterView.O
             array_spinner[y] = String.valueOf(MainActivity.currencyArrayList.get(y).getSymbol());
             for (String s : array_spinner)
             {
-                if (s != null && s.length() >0)
                 if (s != null && s.length() > 0)
                 {
                     list1.add(s);
