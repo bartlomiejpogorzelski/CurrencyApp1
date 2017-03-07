@@ -81,12 +81,12 @@ public class ExchangeActivity extends AppCompatActivity implements AdapterView.O
         {
             mainAccount.setAmount(newPlnAmount);
             textAmount.setText(String.valueOf(mainAccount.getAmount()));
-            for (int i = 0; i < accountsList.size(); i++) {
-                Account account = accountsList.get(i);
-                if(account.getCurrency().getSymbol().equals(spinner.getSelectedItem().toString())) {
-                //dzieki temu kupując jedna walutę kilka razy, wartość się dodaje, a nie nowa zastępuje starą.
-                    account.updateAmount(buyAmount);
-                }
+            for ( Account account : accountsList )
+            {
+             if((account.getCurrency().getSymbol().equals(spinner.getSelectedItem().toString())) )
+             {
+                 account.updateAmount(buyAmount);
+             }
             }
         }
     }
