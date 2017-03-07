@@ -50,6 +50,7 @@ public class ExchangeActivity extends AppCompatActivity implements AdapterView.O
             for (String s : array_spinner)
             {
                 if (s != null && s.length() >0)
+                if (s != null && s.length() > 0)
                 {
                     list1.add(s);
                 }
@@ -84,9 +85,7 @@ public class ExchangeActivity extends AppCompatActivity implements AdapterView.O
                 Account account = accountsList.get(i);
                 if(account.getCurrency().getSymbol().equals(spinner.getSelectedItem().toString())) {
                 //dzieki temu kupując jedna walutę kilka razy, wartość się dodaje, a nie nowa zastępuje starą.
-                    double buyAmount2 = account.getAmount();
-                    buyAmount2 += buyAmount;
-                    account.setAmount(buyAmount2);
+                    account.updateAmount(buyAmount);
                 }
             }
         }

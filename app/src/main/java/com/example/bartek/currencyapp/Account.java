@@ -32,6 +32,11 @@ public class Account {
         this.currency = currency;
     }
 
+    public void updateAmount(double updateAmount)
+    {
+        amount += updateAmount;
+    }
+
 
 
 
