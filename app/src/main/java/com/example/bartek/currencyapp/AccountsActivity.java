@@ -17,49 +17,24 @@ public class AccountsActivity extends AppCompatActivity {
     public static Account mainAccount= new Account(13000.0, new Currency(1,1,"PLN"));
     public static ArrayList<Account> accountsList = new ArrayList<Account>();
 
-    TextView textView;
-    ListView listb;
-    TextView otherAmount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.accounts_activity);
 
-        textView= (TextView) findViewById(R.id.textAmount);
-        listb= (ListView) findViewById(R.id.listB);
+        ListView listInAccountsActivity = (ListView) findViewById(R.id.listB);
+        TextView textView= (TextView) findViewById(R.id.textAmount);
         textView.setText(String.valueOf(mainAccount.getAmount()+"  zł"));
 
         AccountsAdapter accountsAdapter = new AccountsAdapter(getApplicationContext(), R.layout.row1, accountsList);
-        for (int i = 0; i < MainActivity.currencyArrayList.size() ; i++)
-        {
+        for (int i = 0; i < MainActivity.currencyArrayList.size() ; i++)        {
             accountsList.add(new Account(0.0, MainActivity.currencyArrayList.get(i)));
         }
-
-        otherAmount = (TextView) findViewById(R.id.amountOtherCurrency);
-        listb.setAdapter(accountsAdapter);
+        listInAccountsActivity.setAdapter(accountsAdapter);
         accountsAdapter.notifyDataSetChanged();
-//        listb.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Toast.makeText(getApplicationContext(), "dziala", Toast.LENGTH_SHORT).show();
-//                Intent anotherIntent= new Intent(getApplicationContext(), ExchangeActivity.class);
-//               startActivity(anotherIntent);
-//            }
-//        });
-//        buttonSmall= (Button) findViewById(R.id.buttonSmall);
-//        buttonSmall.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(getApplicationContext(), "kkk" , Toast.LENGTH_SHORT).show();
-//            }
-//        });
     }
     public void btnAllCurrencies(View view) {
         Intent anotherIntent= new Intent(getApplicationContext(), ExchangeActivity.class);
         startActivity(anotherIntent);
     }
-//      public void BtnSmall(View view) {
-//         Intent anotherIntent1= new Intent(getApplicationContext(), ExchangeActivity.class);
-//                  startActivity(anotherIntent1);
-//       }
 }
