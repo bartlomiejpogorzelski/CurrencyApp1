@@ -49,7 +49,7 @@ public class AccountsAdapter extends ArrayAdapter<Account> {
             v = vi.inflate(row1, null);
             holder.button1 = (Button) v.findViewById(R.id.buttonSmall);
             holder.buy2 = (TextView) v.findViewById(R.id.buy11);
-            holder.otherAmount= (TextView)v.findViewById(R.id.amountOtherCurrency);
+            holder.otherAmount = (TextView)v.findViewById(R.id.amountOtherCurrency);
             v.setTag(holder);
         } else {
             holder = (HolderView) v.getTag();
