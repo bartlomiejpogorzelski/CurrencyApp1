@@ -29,15 +29,18 @@ import static com.example.bartek.currencyapp.R.layout.row1;
 public class AccountsAdapter extends ArrayAdapter<Account> {
 
     LayoutInflater vi;
+    private Context context;
 
     public AccountsAdapter(Context context, int resource, ArrayList<Account> object) {
         super(context, resource, object);
         vi = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.context=context;
     }
     @NonNull
     @Override
     public View getView(final int position, final View convertView, @NonNull final ViewGroup parent) {
+        HolderView holder;
         View v = convertView;
         if (v == null) {
             holder = new HolderView();
@@ -62,6 +65,7 @@ public class AccountsAdapter extends ArrayAdapter<Account> {
     static class HolderView {
         public Button button1;
         public TextView buy2;
+        public TextView otherAmount;
     }
 
 }
