@@ -19,6 +19,8 @@ import java.util.ArrayList;
 
 import static android.R.attr.button;
 import static android.R.attr.resource;
+import static com.example.bartek.currencyapp.AccountsActivity.accountsList;
+
 import static com.example.bartek.currencyapp.MainActivity.currencyArrayList;
 import static com.example.bartek.currencyapp.R.layout.row1;
 
@@ -47,16 +49,21 @@ public class AccountsAdapter extends ArrayAdapter<Account> {
             v = vi.inflate(row1, null);
             holder.button1 = (Button) v.findViewById(R.id.buttonSmall);
             holder.buy2 = (TextView) v.findViewById(R.id.buy11);
+            holder.otherAmount= (TextView)v.findViewById(R.id.amountOtherCurrency);
             v.setTag(holder);
         } else {
             holder = (HolderView) v.getTag();
         }
         holder.button1.setText(currencyArrayList.get(position).getSymbol());
         holder.buy2.setText(String.valueOf(currencyArrayList.get(position).getBuy()));
+        holder.otherAmount.setText(String.valueOf(accountsList.get(position).getAmount()));
 
         holder.button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent exchangeIntent= new Intent(context, ExchangeActivity.class);
+                exchangeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(exchangeIntent);
                 Toast.makeText(context, "działa", Toast.LENGTH_SHORT).show();
             }
         });
