@@ -62,7 +62,7 @@ public class ExchangeActivity extends AppCompatActivity implements AdapterView.O
     }
     public void BtnBUY(View view) {
         upDateTextView();
-        Intent anotherIntent5= new Intent(getApplicationContext(), AccountsActivity.class);
+        Intent anotherIntent5 = new Intent(getApplicationContext(), AccountsActivity.class);
         startActivity(anotherIntent5);
    }
     //edittext nazwe zmienic na currencyAmount
