@@ -32,11 +32,18 @@ public class Account {
         this.currency = currency;
     }
 
-    public void updateAmount(double updateAmount)
+    public void updateAmount(double updateAmount) throws NegativeBalanceException
     {
-        amount += updateAmount;
+        if ((amount + updateAmount) < 0)
+        {
+            throw new NegativeBalanceException();
+        }
+        amount = amount + updateAmount;
     }
+     class NegativeBalanceException extends Exception
+     {
 
+     }
 
 
 

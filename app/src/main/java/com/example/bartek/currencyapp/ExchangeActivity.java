@@ -68,23 +68,23 @@ public class ExchangeActivity extends AppCompatActivity implements AdapterView.O
     //edittext nazwe zmienic na currencyAmount
     private void upDateTextView() {
         double foreignCurs = Double.valueOf((textForeign.getText()).toString());
-        double plnAmount = Double.parseDouble(String.valueOf(textAmount.getText()));
-        double buyAmount = Double.parseDouble(String.valueOf(editText.getText())); //editText.getText
-        double result =  foreignCurs * buyAmount;
-        if (result > plnAmount)
-        {
-            Toast.makeText(this,"You don't have enough money",Toast.LENGTH_SHORT).show();
-        }
-        else
-        {
+        double buyCurrency = Double.parseDouble(String.valueOf(editText.getText()));
+        double result =  foreignCurs * buyCurrency;
+
+        try {
             mainAccount.updateAmount(-result);
-            for ( Account account : accountsList )
-            {
-             if((account.getCurrency().getSymbol().equals(spinner.getSelectedItem().toString())) )
-             {
-                 account.updateAmount(buyAmount);
-             }
+
+            for ( Account account : accountsList ) {
+                if((account.getCurrency().getSymbol().equals(spinner.getSelectedItem().toString())) ) {
+                    try {
+                        account.updateAmount(buyCurrency);
+                    } catch (Account.NegativeBalanceException negative){
+                        Toast.makeText(this, "You don't have enough money", Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
+        } catch (Account.NegativeBalanceException negative){
+            Toast.makeText(this, "You don't have enough money1", Toast.LENGTH_SHORT).show();
         }
     }
     @Override
