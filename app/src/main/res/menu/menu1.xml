@@ -4,7 +4,7 @@
         tools:context=".MainActivity"
     >
     <item
-        android:title="@string/calculator_cantor"
+        android:title="@string/go_to_your_account"
         android:id="@+id/action"
         android:showAsAction="always"
         android:icon="@android:drawable/btn_plus"/>
